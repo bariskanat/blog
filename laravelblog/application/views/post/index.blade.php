@@ -26,9 +26,11 @@
                 <p class="userinfo">{{HTML::link_to_route("you",$comment->user->username,array($comment->user->id))}}</p>
                 <p class="comment">{{$comment->comment}}</p>
                 
-                @if(Auth::user()->id==$comment->user->id)
-                    {{HTML::link_to_route("deletecomment","delete",array($comment->id))}}
-               @endif
+                 @if(Auth::check())
+                    @if(Auth::user()->id==$comment->user->id)
+                        {{HTML::link_to_route("deletecomment","delete",array($comment->id))}}
+                    @endif
+                 @endif
 
             </div>
         @endforeach

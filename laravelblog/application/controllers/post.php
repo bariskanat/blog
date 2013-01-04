@@ -66,8 +66,7 @@ class Post_Controller extends Base_Controller{
                  "comment" =>Input::get("comment")
              ));
              
-             return ($result) ? Redirect::to_route("postnew",array(Auth::user()->id)):Redirect::to_route("postnew")->with_input();
-         }
+             return ($result) ? Redirect::to_route("postnew",array(Input::get("post_id"))):Redirect::to_route("postnew",array(Input::get("post_id")))->with_input();
              
     }
     
